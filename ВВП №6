@@ -1,0 +1,85 @@
+#include <limits.h>
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+    float x1, x2, y1, y2, result, A, B, C, AC, BC, AB, X1, X2, Y1, Y2, S, P, X3, Y3, p, DP, x, Result, DP1, DP2;
+    setlocale(LC_ALL, "Rus");
+    printf_s("1. Смена местами содержимого переменных A и B и вывод новых значений A и B.\n");
+    printf_s("2. Смена содержимого A в B, B — в C, C — в A, и вывод новых значений переменных A, B, C.\n");
+    printf_s("3. Смена содержимого A в C, C — в B, B — в A, и вывод новых значений переменных A, B, C.\n");   
+    printf_s("4. Вычисление значения функции y = 3x^6 − 6x^2 − 7.\n");
+    printf_s("5. Вычисление значения функции y = 4(x−3)^6 − 7(x−3)^3 + 2.\n");
+    printf_s("6. Вычисление числа в 8 степени.\n");
+    printf_s("7. Вычисление числа в 15 степени.\n");
+    while (1)
+    {
+        int op;
+        scanf_s("%d", &op);
+        switch (op)
+        {
+        case 1:
+            printf("ВВЕДИТЕ ЧИСЛО A: "); scanf_s("%f", &A);
+            printf("ВВЕДИТЕ ЧИСЛО B: "); scanf_s("%f", &B);
+            C = A; A = B; B = C;
+            printf("Число A = %f\n", A);
+            printf("Число B = %f\n", B);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        case 2:
+            printf("ВВЕДИТЕ ЧИСЛО A: "); scanf_s("%f", &A);
+            printf("ВВЕДИТЕ ЧИСЛО B: "); scanf_s("%f", &B);
+            printf("ВВЕДИТЕ ЧИСЛО C: "); scanf_s("%f", &C);
+            DP = B; B = A; A = C; C = DP;
+            printf("Число A = %f\n", A);
+            printf("Число B = %f\n", B);
+            printf("Число C = %f\n", C);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        case 3:
+            printf("ВВЕДИТЕ ЧИСЛО A: "); scanf_s("%f", &A);
+            printf("ВВЕДИТЕ ЧИСЛО B: "); scanf_s("%f", &B);
+            printf("ВВЕДИТЕ ЧИСЛО C: "); scanf_s("%f", &C);
+            DP = C; C = A; A = B; B = DP;
+            printf("Число A = %f\n", A);
+            printf("Число B = %f\n", B);
+            printf("Число C = %f\n", C);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        case 4:
+            printf("ВВЕДИТЕ Х: "); scanf_s("%f", &x);
+            Result = 3 * pow(x, 6) - 6 * pow(x, 2) - 7;
+            printf("Значение функции = %f\n", Result);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        case 5:
+            printf("ВВЕДИТЕ Х: "); scanf_s("%f", &x);
+            Result = 4 * (pow(x - 3, 6)) - 7 * (pow(x - 3, 3)) + 2;
+            printf("Значение функции = %f\n", Result);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        case 6:
+            printf("ВВЕДИТЕ A: "); scanf_s("%f", &A);
+            DP = 2;
+            DP1 = DP * DP * DP;
+            Result = pow(A, DP1);
+            printf("Значение числа A в 8ой степени = %f\n", Result);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        case 7:
+            printf("ВВЕДИТЕ A: "); scanf_s("%f", &A);
+            DP = A * A;
+            DP1 = DP * A;
+            DP2 = DP * DP1;
+            Result = pow(DP2, 3);
+            printf("Значение числа A в 15ой степени = %f\n", Result);
+            printf_s("Выберите цифру от 1 до 7: ");
+            break;
+        default:
+            printf_s("Ошибка! Введите число от 1 до 7.\n");
+            return 0;
+
+        }
+    }
+}
