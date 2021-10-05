@@ -1,0 +1,84 @@
+#include <limits.h>
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+    float A, B, x, y, mass, stoim, kg, ykg, s, t, v1, v2, sum, A1, A2, B1, B2, C1, C2, ZNAM;
+    setlocale(LC_ALL, "Rus");
+    printf_s("1. Найти значение угла в радианах.\n");
+    printf_s("2. Найти значение угла в градусах.\n");
+    printf_s("3. Вычисление стоимости 1 кг и Y кг конфет.\n");
+    printf_s("4. Вычисление расстояния между автомобилями через T часов.\n");
+    printf_s("5. Вычисление значения линейного уравнения A*x + B = 0\n");
+    printf_s("6. Вычисление значения системы линейных уравнений.\n");
+    while (1)
+    {
+        int op;
+        scanf_s("%d", &op);
+        switch (op)
+        {
+        case 1:
+            printf("Введите значение угла А в градусах: "); scanf_s("%f", &A);
+            printf("%f\n", (A * 3.141592) / 180);
+            printf_s("Выберите цифру от 1 до 6: ");
+            break;
+        case 2:
+            printf("Введите значение угла А в радианах: "); scanf_s("%f", &A);
+            printf("%f\n", (180 / 3.141592) * A);
+            printf_s("Выберите цифру от 1 до 6: ");
+            break;
+        case 3:
+            printf("Введите массу конфет (в кг): "); scanf_s("%f", &mass);
+            printf("Введите стоимость конфет: "); scanf_s("%f", &stoim);
+            printf("Введите нужное количество конфет (в кг): "); scanf_s("%f", &ykg);
+            kg = stoim / mass;
+            printf("Стоимость 1 кг конфет: %f\n", kg);
+            printf("Стоимость нужного количества конфет: %f\n", kg * ykg);
+            printf_s("Выберите цифру от 1 до 6: ");
+            break;
+        case 4:
+            printf("Введите скорость первого автомобиля (в км/ч): "); scanf_s("%f", &v1);
+            printf("Введите скорость второго автомобиля (в км/ч): "); scanf_s("%f", &v2);
+            printf("Введите расстояние (в км): "); scanf_s("%f", &s);
+            printf("Введите время (в ч): "); scanf_s("%f", &t);
+            sum = s + t * (v1 + v2);
+            printf("Автомобили удалятся друг от друга на: %f\n", sum);
+            printf_s("Выберите цифру от 1 до 6: ");
+            break;
+        case 5:
+            printf("Введите значение А: "); scanf_s("%f", &A);
+            printf("Введите значение В: "); scanf_s("%f", &B);
+            sum = (-1) * B / A;
+            printf("Значение уравнения: %f\n", sum);
+            printf_s("Выберите цифру от 1 до 6: ");
+            break;
+        case 6:
+            printf("Введите значение А1: "); scanf_s("%f", &A1);
+            printf("Введите значение В1: "); scanf_s("%f", &B1);
+            printf("Введите значение C1: "); scanf_s("%f", &C1);
+            printf("Введите значение А2: "); scanf_s("%f", &A2);
+            printf("Введите значение В2: "); scanf_s("%f", &B2);
+            printf("Введите значение C2: "); scanf_s("%f", &C2);
+            ZNAM = A1 * B2 - A2 * B1;
+            if (ZNAM != 0)
+            {
+                x = (C1 * B2 - C2 * B1) / ZNAM;
+                y = (A1 * C2 - A2 * C1) / ZNAM;
+                printf("Значение X: %f\n", x);
+                printf("Значение Y: %f\n", y);
+                printf_s("Выберите цифру от 1 до 6: ");
+            }
+            else
+            {
+                printf("Знаменатель не может быть равен нулю!\n");
+                printf_s("Выберите цифру от 1 до 6: ");
+            }
+            break;
+        default:
+            printf_s("Ошибка! Введите число от 1 до 6.\n");
+            return 0;
+
+        }
+    }
+}
