@@ -1,0 +1,102 @@
+#include <limits.h>
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+    float x1, x2, y1, y2, result, A, B, C, AC, BC, AB, X1, X2, Y1, Y2, S, P, X3, Y3, p;
+    setlocale(LC_ALL, "Rus");
+    printf_s("1. Вычисление расстояния между двумя точками с заданными координатами.\n");
+    printf_s("2. Вычисление длин отрезков AC и BC и их сумму.\n");
+    printf_s("3. Вычисление произведения длин отрезков AC и BC.\n");
+    printf_s("4. Вычисление периметра и площади прямоугольника.\n");
+    printf_s("5. Вычисление периметра и площади треугольника.\n");
+    while (1)
+    {
+        int op;
+        scanf_s("%d", &op);
+        switch (op)
+        {
+        case 1:
+            printf("ВВЕДИТЕ КООРДИНАТУ ПО Х ПЕРВОЙ ТОЧКИ: "); scanf_s("%f", &x1);
+            printf("ВВЕДИТЕ КООРДИНАТУ ПО Y ПЕРВОЙ ТОЧКИ: "); scanf_s("%f", &y1);
+            printf("ВВЕДИТЕ КООРДИНАТУ ПО Х ВТОРОЙ ТОЧКИ: "); scanf_s("%f", &x2);
+            printf("ВВЕДИТЕ КООРДИНАТУ ПО Y ВТОРОЙ ТОЧКИ: "); scanf_s("%f", &y2);
+            result = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
+            printf("Расстояние между двумя точками = %f\n", result);
+            printf_s("Выберите цифру от 1 до 5: ");
+            break;
+        case 2:
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ А: "); scanf_s("%f", &A);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ В: "); scanf_s("%f", &B);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ С: "); scanf_s("%f", &C);
+            AC = fabsf(A - C);
+            BC = fabsf(B - C);
+            result = AC + BC;
+            printf("Длина отрезка AC = %f\n", AC);
+            printf("Длина отрезка BC = %f\n", BC);
+            printf("Сумма длин двух отрезков = %f\n", result);
+            printf_s("Выберите цифру от 1 до 5: ");
+            break;
+        case 3:
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ А: "); scanf_s("%f", &A);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ В: "); scanf_s("%f", &B);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ С: "); scanf_s("%f", &C);
+            if (((C > A) and (C < B)) || ((C > B) and (C < A)))
+            {
+                AC = fabsf(A - C);
+                BC = fabsf(B - C);
+                result = AC * BC;
+                printf("Произведение длин двух отрезков = %f\n", result);
+                printf_s("Выберите цифру от 1 до 5: ");
+            }
+            else
+            {
+                printf("Ошибка. Точка C должна быть расположена между точками A и B.\n");
+                printf_s("Выберите цифру от 1 до 5: ");
+            }
+            break;
+        case 4:
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ X1: "); scanf_s("%f", &X1);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ Y1: "); scanf_s("%f", &Y1);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ X2: "); scanf_s("%f", &X2);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ Y2: "); scanf_s("%f", &Y2);
+            A = fabs(X1 - X2);
+            B = fabs(Y1 - Y2);
+            S = A * B;
+            P = 2 * (A + B);
+            printf("Периметр прямоугольника = %f\n", P);
+            printf("Площадь прямоугольника = %f\n", S);
+            printf_s("Выберите цифру от 1 до 5: ");
+            break;
+        case 5:
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ X1: "); scanf_s("%f", &X1);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ Y1: "); scanf_s("%f", &Y1);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ X2: "); scanf_s("%f", &X2);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ Y2: "); scanf_s("%f", &Y2);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ X3: "); scanf_s("%f", &X3);
+            printf("ВВЕДИТЕ КООРДИНАТУ ТОЧКИ Y3: "); scanf_s("%f", &Y3);
+            AB = sqrt(pow(X1 - X3, 2) + pow(Y1 - Y3, 2));
+            BC = sqrt(pow(X3 - X2, 2) + pow(Y3 - Y2, 2));
+            AC = sqrt(pow(X2 - X1, 2) + pow(Y2 - Y1, 2));
+            if ((AB + BC > AC) and (AB + AC > BC) and (BC + AC > AB))
+            {
+                P = AB + BC + AC;
+                p = (AB + BC + AC) / 2;
+                S = sqrt(p * (p - AB) * (p - BC) * (p - AC));
+                printf("Периметр = %f\nПлощадь = %f\n", P, S);
+                printf_s("Выберите цифру от 1 до 5: ");
+            }
+            else
+            {
+                printf("Координаты введены направильно! Сумма двух сторон должна быть больше третьей стороны!");
+                printf_s("Выберите цифру от 1 до 5: ");
+            }
+            break;
+        default:
+            printf_s("Ошибка! Введите число от 1 до 5.\n");
+            return 0;
+
+        }
+    }
+}
