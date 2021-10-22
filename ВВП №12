@@ -1,0 +1,492 @@
+#include <limits.h>
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+    int N, k, n, a, fff, b, c, sq, ost, y, w, x, z, max, min, day, month, comand, route = 0; float xa, ya, xb, yb, xc, yc, ab, ac, s;
+    setlocale(LC_ALL, "Rus");
+    printf_s("1. Вывести дату в виде текста (например, «пятое января»).\n");
+    printf_s("2. Вывести направление робота после выполнения полученной команды.\n");
+    printf_s("3. Вывести строку-описание указанного количества заданий.\n");
+    printf_s("4. Вывести строку-описание числа в диапазоне 100-999.\n");
+    printf_s("5. По номеру года определить его название, если 1984 год — начало цикла: «год зеленой крысы».\n");
+    while (1)
+    {
+        int op;
+        scanf_s("%d", &op);
+        switch (op)
+        {
+        case 1:
+            printf("Введите день: "); scanf_s("%i", &day);
+            printf("Введите месяц: "); scanf_s("%i", &month);
+            if (day > 31 || day < 1 || month < 1 || month > 12)
+            {
+                printf("Ошибка! Неверные значения.\n");
+            }
+            switch (day)
+            {
+            case (10):
+                printf("десятое ");
+                break;
+            case (11):
+                printf("одиннадцатое ");
+                break;
+            case (12):
+                printf("двенадцатое ");
+                break;
+            case (13):
+                printf("тринадцатое ");
+                break;
+            case (14):
+                printf("четырнадцатое ");
+                break;
+            case (15):
+                printf("пятнадцатое ");
+                break;
+            case (16):
+                printf("шестнадцатое ");
+                break;
+            case (17):
+                printf("семнадцатое ");
+                break;
+            case (18):
+                printf("восемнадцатое ");
+                break;
+            case (19):
+                printf("девятнадцатое ");
+                break;
+            case (20):
+                printf("двадцатое ");
+                break;
+            case (30):
+                printf("тридцатое ");
+                break;
+            default:
+                switch (day / 10)
+                {
+                case (2):
+
+                    printf("двадцать ");
+                    break;
+                case (3):
+                    printf("тридцать ");
+                    break;
+
+                }
+                switch (day % 10)
+                {
+                case (1):
+                    printf("первое ");
+                    break;
+                case (2):
+                    printf("второе ");
+                    break;
+                case (3):
+                    printf("третье ");
+                    break;
+                case (4):
+                    printf("четвертое ");
+                    break;
+                case (5):
+                    printf("пятое ");
+                    break;
+                case (6):
+                    printf("шестое ");
+                    break;
+                case (7):
+                    printf("седьмое ");
+                    break;
+                case (8):
+                    printf("восьмое ");
+                    break;
+                case (9):
+                    printf("девятое ");
+                    break;
+                }
+                break;
+            }
+
+            switch (month)
+            {
+            case (1):
+                printf("января \n");
+                break;
+            case (2):
+                printf("февраля \n");
+                break;
+            case (3):
+                printf("марта \n");
+                break;
+            case (4):
+                printf("апреля \n");
+                break;
+            case (5):
+                printf("мая \n");
+                break;
+            case (6):
+                printf("июня \n");
+                break;
+            case (7):
+                printf("июля \n");
+                break;
+            case (8):
+                printf("августа \n");
+                break;
+            case (9):
+                printf("сентября \n");
+                break;
+            case (10):
+                printf("октября \n");
+                break;
+            case (11):
+                printf("ноября \n");
+                break;
+            case (12):
+                printf("декабря \n");
+                break;
+            }
+            printf("Выберите цифру от 1 до 5: ");
+            break;
+        case 2:
+            printf("Введите начальное направление («1» — север, «2» — запад, «3» — юг, «4» — восток): "); scanf_s("%i", &route);
+            printf("Введите команду (0 — продолжать движение, 1 — поворот налево, -1 — поворот направо): "); scanf_s("%i", &comand);
+            route += comand;
+            switch (route)
+            {
+            case (1):
+                printf("Север \n");
+                break;
+            case (2):
+                printf("Запад \n");
+                break;
+            case (3):
+                printf("Юг \n");
+                break;
+            case (4):
+                printf("Восток \n");
+                break;
+            case (0):
+                printf("Восток \n");
+            }
+            printf("Выберите цифру от 1 до 5: ");
+            break;
+        case 3:
+            printf("Введите число учебных заданий: "); scanf_s("%i", &a);
+            if ((a > 9) && (a < 41))
+            {
+                switch (a)
+                {
+                case (10):
+                    printf("десять ");
+                    break;
+                case (11):
+                    printf("одиннадцать ");
+                    break;
+                case (12):
+                    printf("двенадцать ");
+                    break;
+                case (13):
+                    printf("тринадцать ");
+                    break;
+                case (14):
+                    printf("четырнадцать ");
+                    break;
+                case (15):
+                    printf("пятнадцать ");
+                    break;
+                case (16):
+                    printf("шестнадцать ");
+                    break;
+                case (17):
+                    printf("семнадцать ");
+                    break;
+                case (18):
+                    printf("восемнадцать ");
+                    break;
+                case (19):
+                    printf("девятнадцать ");
+                    break;
+                case (20):
+                    printf("двадцать ");
+                    break;
+                default:
+                    switch (a / 10)
+                    {
+                    case (2):
+                        printf("двадцать ");
+                        break;
+                    case (3):
+                        printf("тридцать ");
+                        break;
+                    case (4):
+                        printf("тридцать ");
+                        break;
+
+                    }
+                    switch (a % 10)
+                    {
+                    case (1):
+                        printf("одно ");
+                        break;
+                    case (2):
+                        printf("два ");
+                        break;
+                    case (3):
+                        printf("три ");
+                        break;
+                    case (4):
+                        printf("четыре ");
+                        break;
+                    case (5):
+                        printf("пять ");
+                        break;
+                    case (6):
+                        printf("шесть ");
+                        break;
+                    case (7):
+                        printf("семь ");
+                        break;
+                    case (8):
+                        printf("восемь ");
+                        break;
+                    case (9):
+                        printf("девять ");
+                        break;
+                    }
+                    break;
+                }
+                printf("учебных заведений.\n");
+            }
+            else
+            {
+                printf("Ошибка! Введите число в диапазоне 10-40.\n");
+            }
+            printf("Выберите цифру от 1 до 5: ");
+            break;
+        case 4:
+            printf("Введите число: "); scanf_s("%i", &a);
+            if ((a > 99) && (a < 1001))
+            {
+                switch (a / 100)
+                {
+                case (1):
+                    printf("Сто ");
+                    break;
+                case (2):
+                    printf("Двести ");
+                    break;
+                case (3):
+                    printf("Триста ");
+                    break;
+                case (4):
+                    printf("Четыреста ");
+                    break;
+                case (5):
+                    printf("Пятьсот ");
+                    break;
+                case (6):
+                    printf("Шестьсот ");
+                    break;
+                case (7):
+                    printf("Семьсот ");
+                    break;
+                case (8):
+                    printf("Восемьсто ");
+                    break;
+                case (9):
+                    printf("Девятьсот ");
+                    break;
+                }
+                if (((a / 10) % 10) == 1)
+                {
+                    switch (a % 100)
+                    {
+                    case (10):
+                        printf("десять ");
+                        break;
+                    case (11):
+                        printf("одинадцать ");
+                        break;
+                    case (12):
+                        printf("двенадцать ");
+                        break;
+                    case (13):
+                        printf("тринадцать ");
+                        break;
+                    case (14):
+                        printf("четырнадцать ");
+                        break;
+                    case (15):
+                        printf("пятнадцать ");
+                        break;
+                    case (16):
+                        printf("шестнадцать ");
+                        break;
+                    case (17):
+                        printf("семнадцать ");
+                        break;
+                    case (18):
+                        printf("восемнадцать ");
+                        break;
+                    case (19):
+                        printf("девятнадцать ");
+                        break;
+                    }
+                    printf("\n");
+                    return 0;
+                }
+                switch ((a / 10) % 10)
+                {
+                case (2):
+                    printf("двадцать ");
+                    break;
+                case (3):
+                    printf("тридцать ");
+                    break;
+                case (4):
+                    printf("сорок ");
+                    break;
+                case (5):
+                    printf("пятьдесят ");
+                    break;
+                case (6):
+                    printf("шестьдесят ");
+                    break;
+                case (7):
+                    printf("семьдесят ");
+                    break;
+                case (8):
+                    printf("восемьдесят ");
+                    break;
+                case (9):
+                    printf("девяносто ");
+                    break;
+                }
+                switch (a % 10)
+                {
+                case (1):
+                    printf("один");
+                    break;
+                case (2):
+                    printf("два");
+                    break;
+                case (3):
+                    printf("три");
+                    break;
+                case (4):
+                    printf("четыре");
+                    break;
+                case (5):
+                    printf("пять");
+                    break;
+                case (6):
+                    printf("шесть");
+                    break;
+                case (7):
+                    printf("семь");
+                    break;
+                case (8):
+                    printf("восемь");
+                    break;
+                case (9):
+                    printf("девять");
+                    break;
+                }
+                printf("\n");
+            }
+            else
+            {
+                printf("Ошибка! Введите число в диапазоне 100-999.\n");
+            }
+            printf("Выберите цифру от 1 до 5: ");
+            break;
+        case 5:
+            printf("Год: "); scanf_s("%i", &n);
+            printf("год ");
+            switch ((n) % 10) {
+            case 0:
+            case 1:
+                printf("бел");
+                break;
+            case 2:
+            case 3:
+                printf("черн");
+                break;
+            case 4:
+            case 5:
+                printf("зелён");
+                break;
+            case 6:
+            case 7:
+                printf("красн");
+                break;
+            case 8:
+            case 9:
+                printf("жёлт");
+                break;
+            }
+            switch ((n + 1) % 5) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 9:
+            case 10:
+            case 11:
+                printf("ой ");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                printf("ого ");
+                break;
+            }
+            switch ((n + 8) % 12) {
+            case 0:
+                printf("крысы\n");
+                break;
+            case 1:
+                printf("коровы\n");
+                break;
+            case 2:
+                printf("тигра\n");
+                break;
+            case 3:
+                printf("зайца\n");
+                break;
+            case 4:
+                printf("дракона\n");
+                break;
+            case 5:
+                printf("змеи\n");
+                break;
+            case 6:
+                printf("лошади\n");
+                break;
+            case 7:
+                printf("овцы\n");
+                break;
+            case 8:
+                printf("обезьяны\n");
+                break;
+            case 9:
+                printf("курицы\n");
+                break;
+            case 10:
+                printf("собаки\n");
+                break;
+            case 11:
+                printf("свиньи\n");
+                break;
+            }
+            printf("Выберите цифру от 1 до 5: ");
+            break;
+        default:
+            printf_s("Ошибка! Введите число от 1 до 5.\n");
+            return 0;
+        }
+    }
+}
