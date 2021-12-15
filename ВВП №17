@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sum = 0, max = 0;  int min, n, m, i = 1, i2 = 1, b, z = 1, k ,l, lk, d; float ar, A, D = 0; int a[10]; int* array = NULL;
+    array = (int*)malloc(100);
+    setlocale(LC_ALL, "Rus");
+    printf("1. Найти среднее арифметическое элементов массива с номерами от K до L включительно.\n");
+    printf("2. Если элементы массива образуют прогрессию, то вывести разность прогрессии, если нет — вывести 0.\n");
+    printf("3. Найти минимальный элемент из элементов массива с четными номерами: A2, A4, A6...\n");
+    printf("4. Найти номер последнего локального максимума в массиве.\n");
+    printf("5. Найти номера одинаковых элементов и вывести эти номера в порядке возрастания.\n");
+    while (1)
+    {
+        int vvod;
+        scanf_s("%d", &vvod);
+        switch (vvod)
+        {
+        case 1:
+            printf("Введите размер массива и целые числа K и L: ");
+            scanf_s("%i%i%i", &n, &k, &l);
+          
+            lk = l - k + 1;
+            if ((k < l) && (l < n) && (1 < k))
+            {
+                for (i = 0; i < n; i++)
+                {
+                    printf("a [ i ] = "); scanf_s("%i", &a[i] + 1);
+                }
+                d = l + 1;
+                for (k; k < d; k++)
+                {
+                    sum = sum + a[k];
+                }
+                ar = (float)sum / lk;
+                printf("Среднее арифметическое равно %f ", ar);
+            }
+            else
+            {
+                printf("Ошибка!");
+            }
+            printf("\nВыберите цифру от 1 до 5: ");
+            break;
+         case 2:
+             int n, b, b1;
+             printf("Введите размер массива N: "); scanf_s("%i", &n);
+             
+             printf("Заполните массив числами: \n");
+             for (int i = 0; i < n; i++)
+             {
+                 printf("a [ i ] = "); scanf_s("%i", &a[i]);
+             }
+             b = a[1] - a[0];
+             b1 = a[2] - a[1];
+             if (b == b1)
+             {
+                 printf("Разность прогрессии равна %i ", b);
+             }
+             else
+             {
+                 printf("0");
+             }
+             printf("\nВыберите цифру от 1 до 5: ");
+             break;
+         case 3:
+             printf("Введите размер массива N: "); scanf_s("%i", &n);
+             
+             for (int i = 0; i < n; i++)
+             {
+                 printf("a [ i ] = "); scanf_s("%i", &a[i]);
+             }
+             min = a[1];
+             for (int i = 1; i < n; i+=2)
+             {
+                 if (a[i] < min) 
+                     min = a[i];
+             }
+            printf("%i ", min);
+            printf("\nВыберите цифру от 1 до 5: ");
+            break;
+        case 4:
+            printf("Введите размер массива N: "); scanf_s("%i", &n);
+            for (int i = 0; i < n; i++)
+            {
+                printf("a [ i ] = "); scanf_s("%i", &a[i]);
+            }
+            for (int i = 0; i < n; i++)
+            {
+                if ((a[i] > a[i - 1]) && (a[i] > a[i + 1]))
+                {
+                    max = a[i];
+                    k = i+1;
+                }
+            }
+            printf("%i ", k);
+            printf("\nВыберите цифру от 1 до 5: ");
+            break;
+        case 5:
+            printf("Введите количество символов в массиве N: "); scanf_s("%i", &n);
+            printf("Заполните массив с РОВНО двумя одинаковыми элементами.\n");
+            for (i = 0; i < n; ++i)
+            {
+                printf("a [ i ] = "); scanf_s("%i", &a[i]);
+            }
+            for (int i = 0; i < n; i++)
+            {
+                m = a[i];
+                for (int j = i + 1; j < n; j++)
+                    if (m == a[j])
+                    {
+                        k = i;
+                        l = j;
+                    }
+            }
+            printf("%i  %i", k+1, l+1);
+            printf("\nВыберите цифру от 1 до 5: ");
+            break; 
+         default:
+            printf_s("Ошибка! Введите число от 1 до 5.\n");
+            return 0;
+        }
+    }
+}
